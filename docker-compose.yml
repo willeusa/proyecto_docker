@@ -1,5 +1,0 @@
-services:
-  mi-web: # Nombre de nuestro "contenedor"
-    image: nginx:latest # La "pieza" que vamos a usar
-    ports:
-      - "8080:80" # Puerta de entrada: de fuera hacia dentro
