@@ -1,0 +1,12 @@
+Services:
+  db:
+    image: postgres:16.0
+    container_name: db
+    restart: unless-stopped       
+    environment:
+      - POSTGRES_DB=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data
