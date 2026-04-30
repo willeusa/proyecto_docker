@@ -1,17 +1,35 @@
 services:
-  db:
-    image: mysql:8.0
-    container_name: mysql_lmsgi_server
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456@23
-      MYSQL_DATABASE: gestion_informacion
-      MYSQL_USER: alumno_dam_daw
-      MYSQL_PASSWORD: 123456@23
+
+  odoo:
+    image: odoo:latest
+    container_name: odoo
+    restart: unless-stopped 
+    depends_on:
+      - db
     ports:
-      - "3306:3306"
+      - "8200:8069"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - odoo-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base      
+
+  db:
+    image: postgres:16.0
+    container_name: db
+    restart: unless-stopped       
+    environment:
+      - POSTGRES_DB=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data
 
 volumes:
-  mysql_data:
+  odoo-data:
+  db-data:    
