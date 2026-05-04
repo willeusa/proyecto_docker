@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UML State Diagrams - FP Grado Superior</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-blue: #00417b;
+        --secondary-blue: #0081c6;
+        --light-bg: #f8fafc;
+        --accent-soft: #e0e7ff;
+        --text-main: #1e293b;
+        --text-muted: #475569;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #cbd5e1;
+        display: grid;
+        gap: 40px;
+        grid-template-columns: 1fr;
+        margin: 0;
+        padding: 40px 0;
+        place-items: center;
+      }
+
+      .slide-container {
+        background-color: #ffffff;
+        border-radius: 4px;
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        display: flex;
+        flex-direction: column;
+        font-family: "Lato", sans-serif;
+        height: 720px;
+        overflow: hidden;
+        padding: 60px;
+        position: relative;
+        width: 1280px;
+        border-top: 8px solid var(--primary-blue);
+      }
+
+      .slide-logo {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        height: 50px;
+      }
+      .slide-title {
+        font-size: 44px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        border-left: 10px solid var(--secondary-blue);
+        padding-left: 20px;
+        color: var(--primary-blue);
+        font-family: "Poppins", sans-serif;
+      }
+
+      .content-area {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        width: 100%;
+      }
+
+      /* Estilos para la tabla de símbolos */
+      .symbol-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .symbol-card {
+        display: flex;
+        align-items: center;
+        background: var(--light-bg);
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+      }
+
+      .symbol-icon {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 8px;
+        margin-right: 20px;
+        font-size: 32px;
+        color: var(--primary-blue);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .symbol-info h4 {
+        margin: 0 0 5px 0;
+        color: var(--primary-blue);
+        font-size: 24px;
+      }
+      .symbol-info p {
+        margin: 0;
+        font-size: 18px;
+        color: var(--text-muted);
+      }
+
+      .title-layout {
+        text-align: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .title-layout h1 {
+        font-size: 64px;
+        color: var(--primary-blue);
+        font-family: "Poppins";
+      }
+      hr {
+        width: 100px;
+        height: 6px;
+        background: var(--secondary-blue);
+        border: none;
+        margin: 30px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide-container" id="slide1">
+      <div class="title-layout">
+        <h3
+          style="
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--secondary-blue);
+          "
+        >
+          Módulo Entornos de Desarrollo
+        </h3>
+        <h1>Diagramas de Estados UML</h1>
+        <hr />
+        <p style="font-size: 24px">Diccionario de Símbolos y Comportamiento</p>
+      </div>
+    </div>
+
+    <!-- SLIDE NUEVA: DICCIONARIO DE SÍMBOLOS -->
+    <div class="slide-container" id="slide_symbols">
+      <h2 class="slide-title">Diccionario de Símbolos</h2>
+      <div class="content-area">
+        <div class="symbol-grid">
+          <div class="symbol-card">
+            <div class="symbol-icon"><i class="fa-solid fa-circle"></i></div>
+            <div class="symbol-info">
+              <h4>Inicio</h4>
+              <p>Punto de entrada único. Instanciación del objeto.</p>
+            </div>
+          </div>
+          <div class="symbol-card">
+            <div class="symbol-icon">
+              <i class="fa-solid fa-circle-dot"></i>
+            </div>
+            <div class="symbol-info">
+              <h4>Final</h4>
+              <p>Fin del ciclo de vida o proceso concluido.</p>
+            </div>
+          </div>
+          <div class="symbol-card">
+            <div class="symbol-icon"><i class="fa-solid fa-diamond"></i></div>
+            <div class="symbol-info">
+              <h4>Elección (Choice)</h4>
+              <p>Ramificación dinámica basada en guardas [if].</p>
+            </div>
+          </div>
+          <div class="symbol-card">
+            <div class="symbol-icon">
+              <i class="fa-solid fa-grip-lines"></i>
+            </div>
+            <div class="symbol-info">
+              <h4>Fork / Join</h4>
+              <p>Sincronización de procesos paralelos (Multihilo).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
