@@ -1,4 +1,4 @@
-<p style="text-align: center;"><img alt="Logo de Docker" src="/assets/Docker_Logo.png" width="450px" height="100%"></p>
+<img alt="Logo de Docker" src="/assets/Docker_Logo.png" width="450px" height="100%" style="float: left;">
 <p>Lo importante aquí es entender que trabajamos con el <b>Sprint de la UD07: Sistemas de Gestión Empresarial</b>. Según nuestra programación oficial, en esta unidad debemos aprender a instalar, configurar y administrar sistemas como ERP o CRM.</p>
 <p>&nbsp;</p>
 <p>Y es que, si intentáramos instalar estos sistemas (como Odoo, por ejemplo) de forma nativa en cada uno de vuestros equipos, nos pasaríamos semanas resolviendo conflictos de dependencias, versiones de bases de datos y variables de entorno. Aquí es donde Docker se vuelve nuestra herramienta "quirúrgica".</p>
